@@ -30,7 +30,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://jsonplaceholder.typicode.com/users");
+      const response = await fetch("http://192.168.137.224");
       if (response.ok) {
         const users = await response.json();
         setData(users);
@@ -76,11 +76,9 @@ function App() {
   return (
     <>
       <h1>Lectura del Sensor LDR</h1>
-      {data.length > 0 ? (
+      {Object.keys(data).length > 0 ? (
         <ul>
-          {data?.map((dato) => (
-            <li key={dato.id}>{dato.dato}</li>
-          ))}
+          <li key="0">{data.dato}</li>
         </ul>
       ) : (
         <p>No hay datos</p>

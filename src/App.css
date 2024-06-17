@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Estilos generales para el cuerpo de la página */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin: 0;
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+  color: white;
+}
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 50%; /* Colocar el borde izquierdo del h1 en el centro horizontal */
+  transform: translateX(-50%); /* Centrar el h1 horizontalmente */
+  text-align: center; /* Alinear el texto dentro del h1 al centro */
+}

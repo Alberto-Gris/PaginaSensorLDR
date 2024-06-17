@@ -8,7 +8,7 @@ function App() {
   const [sensorValue, setSensorValue] = useState(0);
 
   useEffect(() => {
-    sensando();
+    fetchData();
     const updateBackground = () => {
       if (sensorValue>=0 && sensorValue<16250)  {
         document.body.style.backgroundColor = "#1A2130";
@@ -31,10 +31,11 @@ function App() {
   const fetchData = async () => {
     try {
       const response = await fetch("http://192.168.137.224");
+      console.log(response);
       if (response.ok) {
         const users = await response.json();
         setData(users);
-        //setSensorValue(users.length); // Utilizando la cantidad de usuarios como valor del sensor
+        setSensorValue(users.dato); // Utilizando la cantidad de usuarios como valor del sensor
         setIsLoading(false);
       } else {
         setIsFallo("No devolvió ningún mensaje");
@@ -42,6 +43,7 @@ function App() {
     } catch (error) {
       setIsFallo("Hubo un fallo con la petición");
     }
+    fetchData();
   };
 
   let identificadorTiempoDeEspera;

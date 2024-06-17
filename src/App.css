@@ -48,6 +48,7 @@ body {
   margin: 0;
   transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
   color: white;
+  text-shadow: 3px  0px 0px black,0px  3px 0px black,-3px  0px 0px black,0px -3px 0px black;
 }
 
 h1 {

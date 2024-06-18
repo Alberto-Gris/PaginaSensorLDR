@@ -8,15 +8,15 @@ function App() {
   const [sensorValue, setSensorValue] = useState(0);
 
   useEffect(() => {
-    fetchData();
+    //sensando();
     const updateBackground = () => {
-      if (sensorValue>=0 && sensorValue<16250)  {
+      if (sensorValue>=200 && sensorValue<225)  {
         document.body.style.backgroundColor = "#1A2130";
         document.body.style.color="white"
-      } else if (sensorValue>=16250 && sensorValue<32500 ) {
+      } else if (sensorValue>=225 && sensorValue<250 ) {
         document.body.style.backgroundColor = "#5A72A0";
         document.body.style.color ="#FFFBC9"
-      } else if(sensorValue>=32500 && sensorValue<48750){
+      } else if(sensorValue>=250 && sensorValue<275){
         document.body.style.backgroundColor = "#83B4FF";
         document.body.style.color ="#FFF688"
       } else{
@@ -24,8 +24,10 @@ function App() {
         document.body.style.color="#FCEB1D"
       }
     };
-
     updateBackground();
+
+    const fetchDataInterval = setInterval(fetchData, 3000);
+    return () => clearInterval(fetchDataInterval);
   }, [sensorValue]);
 
   const fetchData = async () => {
@@ -43,7 +45,6 @@ function App() {
     } catch (error) {
       setIsFallo("Hubo un fallo con la petición");
     }
-    fetchData();
   };
 
   let identificadorTiempoDeEspera;
